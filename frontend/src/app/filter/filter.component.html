@@ -1,0 +1,11 @@
+<div id="search-component"> 
+  <input #searchBox id="search-box" (input)="search(searchBox.value)" placeholder="search assignee" />
+ 
+  <ul class="search-result">
+    <ng-container *ngFor = "let task of tasks$ | async index as i; trackBy: trackByFn">
+      <a routerLink="/task/{{task.id}}">
+    <app-task  [task] = "task"></app-task>
+    </a>
+    </ng-container>
+  </ul>
+</div>
